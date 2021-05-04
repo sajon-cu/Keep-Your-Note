@@ -22,6 +22,15 @@ const addNote = (title, body) => {
     }
 }
 
+const listNotes = () => {
+    const notes = getNotes();
+
+    console.log(chalk.inverse('Your notes'));
+    notes.forEach(note => {
+        console.log(note.title)
+    });
+}
+
 const removeNote = (title) => {
     const notes = getNotes();
     const notesToKeep = notes.filter( note => note.title !== title)
@@ -52,5 +61,6 @@ const getNotes = () => {
 module.exports = {
     'getNotes': getNotes,
     'addNote': addNote,
-    'removeNote': removeNote
+    'removeNote': removeNote,
+    'listNotes': listNotes
 }
